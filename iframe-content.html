@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe Content</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            padding: 20px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <p>This page is inside an iframe.</p>
+    <button onclick="triggerBug()">Open popup and redirect after 10s</button>
+    <div id="status"></div>
+
+    <script>
+        function triggerBug() {
+            const status = document.getElementById('status');
+            status.textContent = 'Opening popup to about:blank...';
+
+            const windowRef = window.open('about:blank', 'testing', 'width=600,height=400,top=100,left=100');
+
+            if (!windowRef) {
+                status.textContent = 'Popup blocked! Please allow popups and try again.';
+                return;
+            }
+
+            let countdown = 10;
+            status.textContent = `Popup opened. Redirecting in ${countdown} seconds...`;
+
+            const interval = setInterval(() => {
+                countdown--;
+                if (countdown > 0) {
+                    status.textContent = `Popup opened. Redirecting in ${countdown} seconds...`;
+                } else {
+                    clearInterval(interval);
+                    status.textContent = 'Redirecting popup now...';
+                    windowRef.location.replace('https://www.google.com');
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
