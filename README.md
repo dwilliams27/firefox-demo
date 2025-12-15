@@ -1,10 +1,20 @@
-1. Run a local server:
-   ```
-   npx serve
-   ```
+# Firefox iframe Popup Bug Demo
 
-2. Open http://localhost:3000 in Firefox
+## Deploy to fly.dev
 
-3. Click the "Open popup and redirect after 10s" button
+```
+fly launch
+fly deploy
+```
 
-4. Wait 10 seconds for the redirect to trigger
+## Run locally
+
+```
+npx serve
+```
+
+## Reproduce the bug
+
+1. Open the URL in Firefox
+2. Click the "Open popup and redirect after 10s" button
+3. Wait 10 seconds for the redirect to trigger
