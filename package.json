@@ -1,10 +1,7 @@
 {
   "name": "firefox-demo",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
-    "dev:iframe": "cd apps/iframe && npm run dev",
-    "build:iframe": "cd apps/iframe && npm run build",
     "deploy:main": "cd apps/main && fly deploy",
     "deploy:iframe": "cd apps/iframe && fly deploy",
     "deploy": "npm run deploy:iframe && npm run deploy:main"

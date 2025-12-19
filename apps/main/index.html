@@ -55,20 +55,20 @@
 </head>
 <body>
     <h1>Firefox iframe Popup Bug Demo</h1>
-    <p>Compare the behavior between vanilla JS and Lit web component implementations. Click the buttons to trigger the bug.</p>
+    <p>Compare the behavior between cross-origin and same-origin iframes. Click the buttons to trigger the bug.</p>
     <div class="note">
-        <strong>Cross-Origin:</strong> These iframes are served from a different origin 
-        (<code>firefox-demo-iframe.fly.dev</code>) to simulate real-world SDK conditions.
+        <strong>Test Setup:</strong> Left iframe is from <code>firefox-demo-iframe.fly.dev</code> (cross-origin), 
+        right iframe is from <code>firefox-demo.fly.dev</code> (same-origin).
     </div>
     
     <div class="container">
         <div class="panel">
-            <div class="panel-header">Vanilla JS <small>(cross-origin)</small></div>
-            <iframe src="https://firefox-demo-iframe.fly.dev/iframe-vanilla.html"></iframe>
+            <div class="panel-header">Cross-Origin <small>(firefox-demo-iframe.fly.dev)</small></div>
+            <iframe src="https://firefox-demo-iframe.fly.dev/iframe-content.html"></iframe>
         </div>
         <div class="panel">
-            <div class="panel-header">Lit Web Component <small>(cross-origin)</small></div>
-            <iframe src="https://firefox-demo-iframe.fly.dev/iframe-content.html"></iframe>
+            <div class="panel-header">Same-Origin <small>(firefox-demo.fly.dev)</small></div>
+            <iframe src="/iframe-content.html"></iframe>
         </div>
     </div>
 </body>
