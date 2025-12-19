@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firefox iframe Popup Bug Demo</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .panel {
+            border: 2px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .panel-header {
+            background: #333;
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+        }
+        .panel-header small {
+            font-weight: normal;
+            opacity: 0.8;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Firefox iframe Popup Bug Demo</h1>
+    <p>Compare the behavior between vanilla JS and Lit web component implementations. Click the buttons to trigger the bug.</p>
+    <div class="note">
+        <strong>Cross-Origin:</strong> These iframes are served from a different origin 
+        (<code>firefox-demo-iframe.fly.dev</code>) to simulate real-world SDK conditions.
+    </div>
+    
+    <div class="container">
+        <div class="panel">
+            <div class="panel-header">Vanilla JS <small>(cross-origin)</small></div>
+            <iframe src="https://firefox-demo-iframe.fly.dev/iframe-vanilla.html"></iframe>
+        </div>
+        <div class="panel">
+            <div class="panel-header">Lit Web Component <small>(cross-origin)</small></div>
+            <iframe src="https://firefox-demo-iframe.fly.dev/iframe-content.html"></iframe>
+        </div>
+    </div>
+</body>
+</html>
